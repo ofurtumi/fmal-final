@@ -39,7 +39,11 @@
 (define (helper output vals funcs)
     (if (null? vals)
         output
-        (helper (cons ((car funcs) (car vals)) output) (cdr vals) (cdr funcs))
+        (helper 
+            (cons ((car funcs) (car vals)) output) 
+            (cdr vals) 
+            (cdr funcs)
+        )
     )
 )
 
@@ -51,3 +55,13 @@
 (define (funky f x)
     (helper '() x f)
 )
+
+; (funky (list (lambda (n) (+ n 3)) (lambda (n) (+ n 2))) (list 2 3))
+(funky 
+        (list (lambda (n) (+ n 3)) (lambda (n) (+ n 2))) 
+        (list 2 3)
+    )
+    (funky
+        (list (lambda (n) (* n 69)) (lambda (n) (/ n 2)))
+        (list 10 138)
+    )

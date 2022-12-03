@@ -24,3 +24,8 @@
         (op (f (car x)) (mapreduce op f (cdr x) u))
     )
 )
+
+(mapreduce + (lambda (n) (- n 2)) '(1 2 3 4) 5)
+(mapreduce + (lambda (n) (+ n 3)) '(1 2 3 4) 5)
+(mapreduce - (lambda (n) (- n 3)) '(1 2 3 4) 5)
+

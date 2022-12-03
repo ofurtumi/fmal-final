@@ -33,3 +33,8 @@
         (f (car x) (foldr f (cdr x) u))
     )
 )
+
+(foldl (lambda (i j) (* i j)) 2 (list 1 2 3 4))
+(foldl (lambda (i j) (* i j)) 1 (list 1 2 4 5))
+(foldr (lambda (i j) (* i j)) (list 1 2 3 4) 2)
+(foldr (lambda (i j) (* i j)) (list 1 2 4 5) 1)
