@@ -47,10 +47,10 @@ dæmi um inntök og úttök hægt að nota til að athuga hvort forrit sé að k
 ### spurning 7
 **inntak**
 ```scheme
-(foldl (lambda (i j) (* i j)) 2 (list 1 2 3 4))
-(foldl (lambda (i j) (* i j)) 1 (list 1 2 4 5))
-(foldr (lambda (i j) (* i j)) (list 1 2 3 4) 2)
-(foldr (lambda (i j) (* i j)) (list 1 2 4 5) 1)
+    (foldl (lambda (i j) (* i j)) 2 (list 1 2 3 4))
+    (foldl (lambda (i j) (* i j)) 1 (list 1 2 4 5))
+    (foldr (lambda (i j) (* i j)) (list 1 2 3 4) 2)
+    (foldr (lambda (i j) (* i j)) (list 1 2 4 5) 1)
 ```
 
 <details>
@@ -65,9 +65,9 @@ dæmi um inntök og úttök hægt að nota til að athuga hvort forrit sé að k
 ### spurning 8
 **inntak**
 ```scheme
-(mapreduce + (lambda (n) (- n 2)) '(1 2 3 4) 5)
-(mapreduce + (lambda (n) (+ n 3)) '(1 2 3 4) 5)
-(mapreduce - (lambda (n) (- n 3)) '(1 2 3 4) 5)
+    (mapreduce + (lambda (n) (- n 2)) '(1 2 3 4) 5)
+    (mapreduce + (lambda (n) (+ n 3)) '(1 2 3 4) 5)
+    (mapreduce - (lambda (n) (- n 3)) '(1 2 3 4) 5)
 ```
 <details>
     <summary style="font-weight: bold; cursor: pointer;">útkoma</summary>
