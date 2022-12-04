@@ -11,8 +11,8 @@ stærsti partur prófana eru forritunarspurningar og hver sem er getur komið me
 ## höfundar
 eins og er eru bara tveir höfundar  
 - þorvaldur tumi
-  - @ofurtumi
+  - [@ofurtumi](https://github.com/ofurtumi)
 - hákon ingi (stjarnan)
-  - @hakoningir
+  - [@hakoningir](https://github.com/hakoningir)
 
 ef þig langar að bæta ehv við sentu bara pull request eða sentu línu á mig til að fá push access :+1:
