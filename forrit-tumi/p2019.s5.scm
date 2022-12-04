@@ -48,3 +48,5 @@
 )
 
 (squarelist (list 1 2 3))
+(squarelist (list 3 2 1))
+(squarelist (list 5 7 9))
