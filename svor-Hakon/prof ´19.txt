@@ -1,0 +1,61 @@
+SELECT PROF_19 FROM SNORRITUNARMAL WHERE NOT EXISTS(BRAIN POWER);
+-------------------------------------------------------------------
+1.
+b, c, d, e, f, h, j, l
+
+-------------------------------------------------------------------
+2.
+a, b, c, e, f, g, h
+
+-------------------------------------------------------------------
+3. 
+A - a,b,c,d,e
+B - a,b,c,d,e
+C - b,c,d
+D - c,d
+E - a,b,c,d,e
+localA - a,b,c,d,e
+localB - b,c,d
+localC - c,d
+localD - d
+localE - e
+
+-------------------------------------------------------------------
+4.
+void f(x,y){
+	y = 2;				//setur y sem 2
+	print x,y;			//prentar x og y, x er ekki initialized
+	x=1;				//wtf
+}
+int i, a[10];				//skilgreinir i og býr til 10 staka fylki
+for(i=0;i!=10, i++) a[i] = i+1;		//setur öll stök í fylkinu sem i+1
+f(a[a[0]], a[0]);			//kallar á fall með a[a[0]] og a[0]
+print a[0], a[1], a[2], a[3];		//prentar 1 2 3 og 4 stak
+
+-------------------------------------------------------------------
+5. 
+{-
+Keyrir þetta? Nei en hugsunin er til staðar!
+Notkun:sp5(l)
+Fyrir: Tekur inn lista af tölum.
+Gildi: Setur allar tölur í annað veldi og summar það saman.
+-}
+sp5 :: [Int] -> Int
+sp5 x = 
+    {-
+    Notkun:helper i summa
+    Fyrir: tekur inn fyrsta stak lista x sem i og summu sem er tala
+    Gildi: setur allar i tölur í annað veldi, summar þær saman og skilar summunni.
+    -}
+    helper :: Int -> Int -> Int
+    where
+        helper i summa =
+            if x == []
+                then summa 
+            else (sp5 (tail x))
+                 (helper (head x) summa + (i*i))
+
+main :: IO()
+main = do
+    let x = [1,2,3,4,5]
+    print(sp5(x))
