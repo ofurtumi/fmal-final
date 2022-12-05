@@ -29,6 +29,19 @@ efni:
   - [lokanir](#lokanir)
   - [framhöld](#framhöld)
   - [straumar](#straumar)
+- [vika 5](#vika-5)
+  - [lokanir í scheme](#lokanir-í-scheme)
+  - [rökstudd forritun](#rökstudd-forritun)
+- [vika 6](#vika-6)
+- [vika 7](#vika-7)
+- [vika 8](#vika-8)
+- [vika 9](#vika-9)
+  - [upplýsingahuld og hönnunarskjöl](#upplýsingahuld-og-hönnunarskjöl)
+  - [fastyðing gagna](#fastyðing-gagna)
+- [vikur 10 og 11](#vikur-10-og-11)
+- [vika 12](#vika-12)
+- [vika 13](#vika-13)
+  - [samhliða forritun](#samhliða-forritun)
 
 # vika 1
 aðalega inngangur um námskeiðið og hvernig kennslu verður háttað en líka byrjað að fjalla um mál og ýmsar skilgreiningar á þeim
@@ -359,3 +372,82 @@ scheme getur unnið með strauma og gerir það býsna vel bara, það eru þá 
 - `cons-stream`
 - `stream-cdr`
 - `stream-car`
+
+# vika 5 
+meira af scheme, lokunum og bálkamótun  
+> ég veit ekki hversu djúpt ég mun fara í efnið, sýnist í fljótu bragði þetta hafa verið tekið mikið fyrir í verkefnum
+
+aðeins líka inn í rökstudda forritun
+
+## lokanir í scheme
+> alveg klárt mál að umdæmisdæmið ætti frekar að vera hér en 🐕‍🦺 <span style="font-size: 0.5rem">(service dog aka bitch who cares)</span>
+
+ég hef engu við að bæta hér, uu jú kannski sjáum nýtingu á lokunum með því búa til fall sem skilar falli þar sem viðfang fyrra falls segir til um reikniaðgerðir seinna fallsins  
+```scheme
+(define (addx x) 
+  (lambda (n) (+ n x))
+)
+(define (add10 n) ((addx 10) n))
+(add10 5)
+```
+hér er fallið `addx` með `lambda` fall sem skilagildi, lambda fallið tekur inn eitt viðfang og leggur það við viðfang `x` úr `addx`  
+seinna fallið er svo `add10` það notar lokun `(addx 10)` til þess að bæta 10 við  
+> auðvitað er þetta pínu fucked notkun á lokun en þú veist fínt dæmi i guess
+
+## rökstudd forritun
+rökstudd forritun er venja sem allir í áfanganum ættu að kannast við, venjan felst í því að öll föll hafi lýsingu á stöðum  
+- Notkun: segir til um hvernig á að nota / kalla á fallið
+- Fyrir: segir til um týpu og form viðfanga fallsins
+- Eftir / Gildi: segir til um týpu og gildi útkomu fallsins
+
+sjá rökstuðning fyrir `addx` fallið skilgreint fyrir ofan
+```scheme
+; Notkun: (addx x)
+; Fyrir:  x er tala
+; Eftir:  skilar falli sem tekur inn 
+;         tölu og bætir x við inntakstöluna
+```
+[skjal](https://notendur.hi.is/snorri/downloads/rokjava.pdf) frá Hr. Rökstudd Forritun með nánari lýsingum, að vísu fyrir java en 🐕‍🦺
+
+# vika 6 
+vika 6 fjallar bara um ocaml og við hötum ocaml þannig ætla ekki að tala um það
+
+# vika 7 
+í viku 7 var kynnt miðmisserisprófið og byrjað að kynna Morpho
+
+# vika 8 
+miðmisserispróf
+
+# vika 9 
+nýtt efni, upplýsingahuld og hönnunarskjöl, fastyrðing gagna og hlutbundin forritun í Morpho
+
+## upplýsingahuld og hönnunarskjöl
+betur þekkt sem **information hiding** og **design documents**, er hönnunaraðferð sett fram af einhverjum klárum kalli fyrir löngu  
+í grunnin segir það til um hvað á og hvað á ekki að vera sýnilegt eftir flokki fólks, þessir flokkar eru þrír 
+- notendur
+- smiðir
+- hönnuðir
+ 
+segjum að forrit noti forgangsbiðröð (*priority queue*) þá á **notandinn** ekki að vita hvernig forgangsbiðröðin er útfærð, bara hvernig á að nota hana  
+hinsvegar eiga **smiðir** forritanna að fá nægar upplýsingar til að geta smíðað forgangsbiðröðina en ekki meir  
+gert er ráð fyrir að aðeins sé einn hönnuður og hann hefur allar upplýsingar og sér til þess að noendur og smiðir fái aðeins þær upplýsingar sem þeim er ætlað  
+þetta er til þess að hægt sé að breyta útfærslu forgangsraðarinnar án þess að hafa áhrif á notandann
+
+## fastyðing gagna
+fastyrðing gagna eða *data invariants* segir til um hvernig gögn eru táknuð innan einingar, **ath. að gögn eru ekki fastyrt inn í hönnunarskjali**, fastyrðing skal alltaf vera sönn eftir smíð eintaks viðkomandi gagnamóts það gerir að verkum að ef smiður hefur í höndum bæði hönnunarskjal og fastyrðingu gagna fyrir einingu ætti það að vera nóg til að smíða eininguna aftur
+
+# vikur 10 og 11 
+haskell, lestu um það á [learnyouahaskell](http://learnyouahaskell.com/chapters) 
+
+# vika 12
+talað um fjölnota klasa og einingar í `java` og `c++`, skiptir ekki máli fyrir prófið held ég þannig nenni ekki að skoða
+
+# vika 13
+það var fjallað um samhliða (*parallel*) forritun, almenna og líka sérstaklega í java og Morpho  
+ég hugsa að ég tali um það almennt en taki kannski eitt dæmi í Morpho því Morpho er mjög kósý í samhliða forritun
+
+## samhliða forritun
+grunnpælingin í samhliða forritun er, eins og nafnið gefur til kynna, að keyra nokkra þræði eða prósessa á sama tíma hlið við hlið  
+þetta getur aukið hraða rosa mikið þar sem að tveir þræðir að vinna að sömu vinnu hlið við hlið eru fræðilega tvöfalt hraðari en einn þráður  
+hinsvegar getur verið vesen að samræma gögnum á milli þráða þannig samhliða forritun er ekki endilega lausn við öllum vandamálum heimsins  
+ég ætlaði að tak dæmi en ég neni ekki
