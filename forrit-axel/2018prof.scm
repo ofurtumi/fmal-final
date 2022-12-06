@@ -77,6 +77,8 @@
 ;; Fyrir:  f er tvíundaraðgerð (b -> a -> b)
 ;;         x er af tagi b og l inniheldur gildi af tagi a
 ;; Eftir:  gildið af tagi b, (f ... (f (f x l_1) l_2) ... l_n)
+
+;; þetta er halaendurkvæmt
 (define (myLeft f x l)
     (if (null? l)
         x
@@ -90,3 +92,29 @@
     (if (null? l)
         x
         (f (car l) (myRight f x (cdr l)))))
+
+
+;;****************************
+;;******** Spurning 9 ********
+;;****************************
+
+;; Notkun: (between x a b)
+;; Fyrir:  x er listi talna, a og b eru tölur, a <= b.
+;; Eftir:  listinn sem inniheldur tölur úr x, i þar sem a <= i <= b
+
+(define (between x a b)
+    (help3 x a b '()))
+
+;; Notkun: (help3 x a b acc)
+;; Fyrir:  x er listi talna, a og b eru tölur, a <= b.
+;;         acc er listi.
+;; Eftir:  listi sem inniheldur öll gildi í acc auk allra
+;;         talna í x sem eru á bilinu [a,b].
+(define (help3 x a b acc)
+    (if (null? x)
+        acc
+        (if (<= (car x) b)
+            (if (>= (car x) a)
+                (help3 (cdr x) a b (cons (car x) acc))
+                (help3 (cdr x) a b acc))
+            (help3 (cdr x) a b acc))))
