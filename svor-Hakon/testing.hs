@@ -21,6 +21,11 @@ foldright f (x:xs) u = foldright f xs (f x u)
 atoi i n = [n, n-1 .. i]
 itoa i n = [i .. n]
 
+sqsum (x:xs) = help (x:xs) 0
+    where
+        help [] sum = sum
+        help (l:ls) sum = help ls (sum + (l^2)) 
+
 main :: IO()
 main = do
     let x = [1,2,3,4,5]
@@ -33,3 +38,4 @@ main = do
     print(atoi 1 5)
     print(itoa 1 5)
     print("---------------------------")
+    print(sqsum x)
