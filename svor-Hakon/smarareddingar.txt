@@ -1,0 +1,92 @@
+VIÐFÖNG {- 
+	nafna: hver er bendirinn í hvert skipti sem við notum breytuna
+	tilvísun: bætist aukabendir á minnisfall. 
+	gildi: hvað skilar forritið
+	f (x,y)
+		y = 5
+		print(x,y)
+		x = 4
+	a = {0,1,2,3,4}	
+	f(a[0], a[a[0]])
+	
+	accessar 0 stak í a sem er einn, accessar svo 1 stak í a sem er 2.
+	þessi breyting erfist svo að fylkið er orðið
+	a = {5,1,2,3,4}
+	svo er kallað á x svo það breytist í
+	a = {4,1,2,3,4}
+	þetta er asnaleg leið til þess að orða þetta allt saman en ef y = 3 og a = {0,1,2,3}
+	Þá er kallið á a[a[0]] með y skilar 3
+-}
+sp4 '19
+f (x,y){
+	y = 2
+	print(x,y)
+	x = 1
+}
+int i, a[10];
+for (i=0; i!=10;i++) a[i]=i+1;
+
+f(a[a[0]], a[0]);
+print a[0],a[1],a[2],a[3];
+
+gildisviðföng: 2, 2 1,2,3,4
+tilvísunarviðföng: 2,2,2,1,3,4
+nafnaviðföng: 3,2,2,2,1,4
+
+RUSLASÖFNUN -
+muna þetta easy stig
+
+merkja og sópa leyfa stærri kös og stærra heildarsvæði í notkun.
+afritunarsöfnun er hraðvirkari þegar minnisúthlutun er tíð og minnissvæði skammlíf.
+
+LOKANIR -
+basicly bara vikublað 4
+
+tengihlekkur bendir alltaf á viðeigandi vakningarfærslu
+stýrihlekkur 
+
+viðföng - arguments
+staðværar breytur - local variables
+vendisvistfang - return address
+stýrihlekkur 
+tengihlekkur 
+
+lokun inniheldur 
+	fallsbendi á vélarmálsþulu viðkomandi falls.
+	aðgangshlekk sem bendir á viðeigandi vakningarfærslu þess tefs sem inniheldur viðkomandi fall
+
+define f (  <- aðgangshlekkur
+	y = f
+	lambda (x) (+ x y) <- vélamálsbendir
+)
+
+Það eru lokanir i öllum forritunarmálum sem að við vorum í
+það eru ekki lokanir í java, c, c++ so on
+
+FORRITUN
+leggja a minnið foldl, foldr, itoa og atoi
+
+verður skeyting á lista???
+
+
+UPPLÝSINGAHULD
+hvað þarf forritarinn að vita
+hvað þarf notandinn að vita
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
