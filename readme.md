@@ -9,10 +9,13 @@ stærsti partur prófana eru forritunarspurningar og hver sem er getur komið me
 önnur svör sem krefjast myndrænna lausna fara í [pics](pics) möppuna, mæli mjög með [excalidraw](https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor) viðbótinni við vscode, hægt að gera sjúklega mikið þar á einfaldann hátt
 
 ## höfundar
-eins og er eru bara tveir höfundar  
+~~eins og er eru bara tveir höfundar~~  
+nú eru þeir orðnir þrír, þvílikt stórskotalið
 - þorvaldur tumi
   - [@ofurtumi](https://github.com/ofurtumi)
 - hákon ingi (stjarnan)
   - [@hakoningir](https://github.com/hakoningir)
+- axel thor
+  - [@AxelThorAsp](https://github.com/AxelThorAsp)
 
 ef þig langar að bæta ehv við sentu bara pull request eða sentu línu á mig til að fá push access :+1:
