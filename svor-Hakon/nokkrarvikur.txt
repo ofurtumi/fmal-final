@@ -1,0 +1,126 @@
+SeLeCt sOmEtHiNg FrOm BrAiN wHeRe BrAiN nOt NuLl;
+output: null
+--------------------------------------------------------------------------------------
+vika1.
+útskýrir þessa fokked önn í þessum fokked áfanga. bnf ebnf.
+Hvað er mál? mál er mengi strengja.
+bnf er metamál til að skilgreina mál.
+BNF dæmi:
+	<e> 	::= <num> | (<e>) | <e> <op> <e>
+	<op> 	::= +|-|*|/
+	<num> 	::= <digit> | <digit> <num>
+	<digit> ::= 0|1|2|3|4|5|6|7|8|9
+
+talar eh um regex who cares það kunna það allir
+sama með fsm
+
+EBNF dæmi:
+	e = term, {op, term};
+	term = number | '(', e , ')';
+	op = '+' | '-' | '*' | '/' ;
+	number = digit, {digit};
+	digit = '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+
+--------------------------------------------------------------------------------------
+vika2.
+CALL BY VALUE =
+	er gildað áður en kallað er á viðkomandi stef, gildið sem út kemur er sett á viðeigandi 
+	stað inn í nýju vakningarfærsluna sem verður til við kallið.
+	Flest forritunarmál styðja gildisviðföng.
+
+CALL BY REFERENCE = 
+	t.d. *var* viðfang í Pascal eða viðfang með & í C++, verður að vera breyta eða ígildi breytu
+	(t.d. stak í fylki). það er ekki gildað áður en kallað er heldur er vistfang breytunnar sett
+	á viðeigandi stað í nýju vakningarfærsluna. Þegar viðfangið er notað inn í stefninu sem kallað 
+	er á er gengið beint í viðkomandi minnissvæði gegnum vistfangið sem sent var.
+
+CALL BY VALUE / CALL BY RESULT / COPY IN / COPY OUT
+	afritsviðfang verður að vera breyta eins og tilvísunarviðfang. Afritsviðfang er meðhöndlað eins 
+	og gildisviðfang, nema að þegar kalli lýkur er afritað til baka úr vakningarfærslunni aftur í breytuna.
+
+LAZY VALUES
+	nafnvöng virka þannig að þegar kallað er á fall eða stef er ekki reiknað úr nafnviðföngunum áður en 
+	byrjað er að reikna inn í fallinu eða stefinu sem kallað er á, heldur er reiknað úr hverju viðfangi 
+	í hvert skipti sem það er notað. Löt viðföng eru eins nema hvað aðeins er reiknað einu sinni, í fyrsta
+	skiptið sem viðfangið er notað. ef nafnviðfang er breyta þá má nota það sem vinstri hlið í gildisveitingu.
+	Hins vegar er ekkert vit í að nota latt viðfang sem vinstri hlið í gildisveitingu. 
+
+--------------------------------------------------------------------------------------
+vika3.
+bindingar blablabla
+lambda:
+ef x er breytunafn þá er x lögleg lambda formúla
+ef x er breytunafn og N er lögleg lambda þá er lambdax lögleg lamda formúla
+ef m og n eru löglegar lambda þá er mn lögleg lambda
+ef M er lögleg lambda þá er (M) lögleg lambda
+engar aðrar formúlur eru löglegar lambda.
+
+svo kemur basicly geðveikt mikið af drasli sem að kemur ekki á prófi
+
+--------------------------------------------------------------------------------------
+vika4.
+VAKNINGARFÆRSLUR PT.2
+vakningarfærsla er það minnissvæði sem einstök vakning af falli eða stefi notar meðan það keyrir.
+öll forritunarmál sem hafa fall hafa vakningarfærslur á einn eða annan hátt. í flestum tilfellum geymdar á stack.
+í scheme haskell morpho og ml eru vakningarfærslur geymdar í heap.
+Bálkmótuð forritunarmál innihalda:
+	Viðföng - args
+	Staðværar breytur - local variable
+	return address
+	stýrihlekk
+	tengihlekk
+ef vakningarfærslur eru geymdar á hlaða sem algengast er bendir stýrihlekkurinn alltaf á næstu vakningarfærslu.
+vakningarfærslur í málum sem eru ekki bálkmótuð (C, C++, C# og java) innihalda sömu upplýsingar 
+og talið er upp að ofan nema það er ekki tengihlekkur.
+
+CLOSURES
+er gildi í bálkmótuðu forritunarmáli er notað á sama hátt og fallsbendar eru notaðir í c og c++.
+í standard pascal eru lokanir til staðar en ekki í object pascal eða turbo pascal
+öll þessi 3 mál hafa vakningarfærslu á hlaða.
+
+lokun inniheldur:
+	fallsbendi á vélarmálsþulu viðkomandi falls.
+	aðgangshlekk sem bendir á viðeigandi vakningarfærslu þess tefs sem inniheldur viðkomandi fall
+
+ekki er hægt að skila lokun sem niðurstöðu úr kalli eða vista lokun í breytu.
+ástæða þessarar takmörkunar er sú að aðgangshlekkurinn í lokuninni inniheldur tilvísun á vakningarfærslu.
+sú vakningarfærsla er áreiðanlega til staðar þegar lokunin verður til og allt þar til bálkur sá sem lokunin
+verður til í lýkur keyrslu en eftir það er mögulegt að vakningarfærslunni sé eytt. lokunin er aðeins í nothæfu 
+ástandi ef aðgangshlekkurin vísar á vakningarfærslu sem til er.
+scheme ml morpho haskell og hafa hafa ruslasöfnun. rusalsöfnun er nauðsynleg forsenda þess að unnt sé að nota 
+lokanir á sveigjanlegan hátt. Og reyndar er það einnig nauðsynleg forsenda að vakningarfærslur taki þátt í ruslasöfnun. 
+Í stað þess að vakningarfærslu sé skilað um leið og bálkur vakningarfærslunnar lýkur keyrslu lifir vakningarfærslan
+meðan til er einhver tilvísun á hana úr einhverjum lifandi lokunum
+
+FRAMHÖLD
+innihalda stýrihlekk og vendisvistang, eru til í scheme, java og c++
+
+--------------------------------------------------------------------------------------
+vika5.
+hann gefur bara eh mjög pirrandi dæmi um streams í scheme sem ég nenni ekki að læra.
+
+--------------------------------------------------------------------------------------
+vika9.
+thats right ég skippaði bara 4 vikur
+FASTAYRÐINGAR GAGNA.
+basicly bara skjölun um einingaforritun. segir hvað eitthvað á að vera.
+fastayrðing gagna fyrir eitthvað tiltekið gagnamót er stöðulýsing og skal vera sönn eftir smíð á hverju eintaki 
+af viðkomandi gagnamóti og skal vera sönn fyrir og eftir sérhverja opinbera aðgerð sem beitt er á eintak af gagnamótinu.
+Ef forritari hefur hönnunarskjal á hann að hafa nægilega miklar upplýsingar til að geta forritað sérhverja opinbera 
+aðgerð einingarinnar.
+--------------------------------------------------------------------------------------
+takk fyrir pent. nenni ekki meira
+
+
+
+
+
+
+
+
+
+
+
+
+
+
