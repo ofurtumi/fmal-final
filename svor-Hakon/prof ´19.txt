@@ -35,7 +35,7 @@ print a[0], a[1], a[2], a[3];		//prentar 1 2 3 og 4 stak
 -------------------------------------------------------------------
 5. 
 {-
-Keyrir þetta? Nei en hugsunin er til staðar!
+Keyrir þetta? Nei en hugsunin er til staðar!	
 Notkun:sp5(l)
 Fyrir: Tekur inn lista af tölum.
 Gildi: Setur allar tölur í annað veldi og summar það saman.
